@@ -1,0 +1,52 @@
+name: Build Stepwgn Fuel Tracker APK
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-android-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Capacitor & Add Android Platform
+        run: |
+          npm install
+          npx cap add android
+          npx cap sync android
+
+      - name: Apply White Honda Stepwgn Launcher Icons
+        run: |
+          cp -rf android-icons/* android/app/src/main/res/
+
+      - name: Set Auto-Incrementing versionCode & Version Name
+        run: |
+          BUILD_NUM=${{ github.run_number }}
+          sed -i "s/versionCode 1/versionCode ${BUILD_NUM}/g" android/app/build.gradle
+          sed -i 's/versionName "1.0"/versionName "1.0.3"/g' android/app/build.gradle
+
+      - name: Build Android APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stepwgn-Fuel-Tracker-v1.0.3-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
