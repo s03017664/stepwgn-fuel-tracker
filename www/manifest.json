@@ -1,0 +1,23 @@
+{
+  "name": "Stepwgn 入油管家 v1.0.3",
+  "short_name": "Stepwgn油費",
+  "description": "白色 Honda Stepwgn 專屬入油紀錄、圖表走勢分析與跨裝置同步工具",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f6f9",
+  "theme_color": "#0C1D31",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

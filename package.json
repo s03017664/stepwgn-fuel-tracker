@@ -1,0 +1,15 @@
+{
+  "name": "stepwgn-fuel-tracker",
+  "version": "1.0.3",
+  "description": "Honda Stepwgn 入油管家 Android APK & PC PWA 套件",
+  "scripts": {
+    "sync": "npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/android": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}

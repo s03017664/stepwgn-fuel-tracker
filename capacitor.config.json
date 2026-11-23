@@ -1,0 +1,9 @@
+{
+  "appId": "com.ng.stepwgnfuel",
+  "appName": "Stepwgn入油管家 v1.0.3",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  }
+}
